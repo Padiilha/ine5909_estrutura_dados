@@ -1,56 +1,58 @@
 template<typename T>
 class Stack{
-    private:
-        int top = -1, maxElements;
-        T *array;
-    
-    public:
-        // Default Constructor
-        Stack(){}
+  private:
+    int top = -1, maxElements;
+    T *array;
 
-        // Template Constructor
-        Stack<T>(int maxEl){
-            maxElements = maxEl;
-            array = new T[maxEl];
-        }
+  public:
+    // Default Constructor
+    Stack(){}
 
-        // Destructor
-        ~Stack(){
-            delete[] array;
-        }
+    // Template Constructor
+    Stack<T>(int maxEl){
+      maxElements = maxEl;
+      array = new T[maxEl];
+    }
 
-        void push(int valor){
-            if (!fullStack()){
-                top++;
-                array[top] = valor;
-            } else {
-                throw top;
-            }
-        }
+    // Destructor
+    ~Stack(){
+      delete[] array;
+    }
 
-        int pop(){
-            if (!emptyStack()){
-                int popVal = array[top];
-                top--;
-                return popVal;
-            } else {
-                throw top;
-            }
-        }
+    void push(int valor){
+      if (!fullStack()){
+        top++;
+        array[top] = valor;
+      } else {
+        throw top;
+      }
+    }
 
-        bool emptyStack(){
-            return (numElements() == 0);
-        }
+    int pop(){
+      if (!emptyStack()){
+        int popVal = array[top];
+        top--;
+        return popVal;
+      } else {
+        throw top;
+      }
+    }
 
-        bool fullStack(){
-            return (numElements() == maxElements);
-        }
+    bool emptyStack(){
+      return (numElements() == 0);
+    }
 
-        int numElements(){
-            return top + 1;
-        }
+    bool fullStack(){
+      return (numElements() == maxElements);
+    }
 
-        int stackTop(){
-            return array[top];
-        }
+    int numElements(){
+      return top + 1;
+    }
+
+    int stackTop(){
+      if (!emptyStack()){
+        return array[top];
+      }
+    }
 };
