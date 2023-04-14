@@ -1,16 +1,16 @@
 #include "element.hpp"
 
 template<typename T>
-class List{
+class LinkedList{
   private:
     T* first, last;
 
   public:
-    List(){}
+    LinkedList(){}
 
-    List<T>(){}
+    LinkedList<T>(){}
 
-    ~List(){
+    ~LinkedList(){
       delete[];
     }
 
@@ -49,3 +49,4 @@ class List{
       return (first == NULL && last == NULL);
     }
 };
+
