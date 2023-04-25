@@ -63,6 +63,27 @@ class DoublyLinkedList {
       cursor = first->getPrevious();
     }
 
+    /*
+      Metodo goToPosition()
+      utiliza o metodo goFirst()
+      setta a posicao como 1
+      itera pelo numero de elementos na lista:
+        se o contador de posicao eh igual a posicao inserida: sai do escopo
+        se nao: utiliza o metodo advanceNPositions() para avancar 1 posicao
+      se nao tiver saido do escopo: lanca uma excessao
+    */
+    void goToPosition(int pos) {
+      goFirst();
+      position = 1;
+      for (int i = 0; i < numElements; i++) {
+        if (position == pos) {
+          break;
+        }
+        advanceNPositions(1);
+      }
+      // throw ...
+    }
+
     // auxiliar methods
 
     /*
@@ -93,27 +114,6 @@ class DoublyLinkedList {
       } else {
         // throw ...
       }
-    }
-
-    /*
-      Metodo goToPosition()
-      utiliza o metodo goFirst()
-      setta a posicao como 1
-      itera pelo numero de elementos na lista:
-        se o contador de posicao eh igual a posicao inserida: sai do escopo
-        se nao: utiliza o metodo advanceNPositions() para avancar 1 posicao
-      se nao tiver saido do escopo: lanca uma excessao
-    */
-    void goToPosition(int pos) {
-      goFirst();
-      position = 1;
-      for (int i = 0; i < numElements; i++) {
-        if (position == pos) {
-          break;
-        }
-        advanceNPositions(1);
-      }
-      // throw ...
     }
 
     // list private methods
