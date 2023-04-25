@@ -1,39 +1,39 @@
-template<typename T>
 class Element {
   private:
     int key;
-    T* prev, next;
+    Element* prev;
+    Element* next;
 
   public:
-    Element() {}
-
-    Element<T>(int k, T &p, T &n) {
+    Element(int k, Element* p, Element* n) {
       key = k;
-      prev = &p
-      next = &n;
+      prev = p;
+      next = n;
     }
 
-    ~Element() {
-      delete[];
+    Element(int k) {
+      key = k;
+      prev = nullptr;
+      next = nullptr;
     }
 
     int getKey() {
       return key;
     }
 
-    void setPrevious(T &p) {
-      prev = &p;
+    void setPrevious(Element* p) {
+      prev = p;
     }
 
-    T getPrevious() {
-      return *prev;
+    Element* getPrevious() {
+      return prev;
     }
 
-    void setNext(T &n) {
-      next = &n;
+    void setNext(Element* n) {
+      next = n;
     }
 
-    T getNext() {
-      return *next;
+    Element* getNext() {
+      return next;
     }
 };
