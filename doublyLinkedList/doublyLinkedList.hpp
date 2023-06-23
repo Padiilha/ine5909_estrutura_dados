@@ -151,7 +151,7 @@ class DoublyLinkedList {
       if (!emptyList()){
         return cursor;
       } else {
-        // throw ...
+        return NULL;
       }
     }
 
