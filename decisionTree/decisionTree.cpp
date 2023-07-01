@@ -47,7 +47,6 @@ Node* findAnimal(Node* root) {
         break;
     }
   }
-
   return root;
 }
 
@@ -78,12 +77,11 @@ int main() {
 
         insertNode(foundAnimal, difference);
         insertNode(foundAnimal->left, thoughtAnimal);
-        foundAnimal = rotateRight(foundAnimal);
+        root = rotateRight(foundAnimal);
         break;
       default:
         break;
     }
   }
-
   return 0;
 }
