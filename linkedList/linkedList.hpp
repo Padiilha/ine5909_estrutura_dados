@@ -1,52 +1,32 @@
-#include "element.hpp"
+#ifndef LINKEDLIST_HPP
+#define LINKEDLIST_HPP
 
-template<typename T>
-class LinkedList{
+template<typename Element>
+class LinkedList {
   private:
-    T* first, last;
+    Element* first;
+    Element* last;
+    Element* cursor;
+
+    bool emptyList();
 
   public:
-    LinkedList(){}
+    LinkedList() : first(nullptr), last(nullptr), cursor(first) {}
 
-    LinkedList<T>(){}
-
-    ~LinkedList(){
-      delete[];
+    ~LinkedList() {
+      delete first, last, cursor;
     }
+    
+    template<typename Index>
+    void insert(Index* index);
 
-    void insertFirst(int value){
-      if (!emptyList()){
-        Element<int> firstElement = accessFirst();
-        Element<int> newElement(value, &firstElement);
-        first = &newElement;
-      } else {
-        Element<int> newElement(value, NULL);
-        first = &newElement;
-        last = &newElement;
-      }
-    }
+    template<typename Index>
+    void remove(Index* index);
 
-    void insertLast(int value){
-      Element<int> lastElement = accessLast();
-      Element<int> newElement(value, NULL);
-      lastElement.next = &newElement;
-      last = &lastElement;
-    }
+    template<typename Index>
+    Element* search(Index* indexToFind);
 
-    void removeFirst(){
-      first = &first.next;
-    }
-
-    Element accessFirst(){
-      return *first;
-    }
-
-    Element accessLast(){
-      return *last;
-    }
-
-    bool emptyList(){
-      return (first == NULL && last == NULL);
-    }
+    Element* access();
 };
 
+#endif
